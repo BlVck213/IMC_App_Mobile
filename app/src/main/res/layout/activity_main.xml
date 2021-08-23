@@ -43,7 +43,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
                 android:hint="Digite aqui seu Peso"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:textColorHint="@color/black"
                 android:background="@drawable/activity_edit_text"
                 android:drawableStart="@drawable/ic_baseline_warning_24"
@@ -67,6 +67,7 @@
 
 
                 <Button
+                    android:id="@+id/button_calcular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
