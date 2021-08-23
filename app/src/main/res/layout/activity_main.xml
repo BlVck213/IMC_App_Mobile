@@ -23,7 +23,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/img_imc"
+                android:src="@drawable/barbell"
                 android:layout_marginTop="20dp"/>
 
             <TextView
@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:textSize="35sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/black"/>
 
             <EditText
                 android:id="@+id/edit_text_peso"
@@ -42,32 +42,34 @@
                 android:paddingStart="10dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Seu Peso"
-                android:textColorHint="#abbaf2"
+                android:hint="Digite aqui seu Peso"
+                android:textColorHint="@color/black"
                 android:background="@drawable/activity_edit_text"
-                android:drawableStart="@drawable/icone_peso"
-                android:drawableTint="@color/white"/>
+                android:drawableStart="@drawable/ic_baseline_warning_24"
+                android:drawableTint="@color/black"/>
+
 
             <EditText
                 android:id="@+id/edit_text_altura"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingStart="5dp"
+                android:paddingStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Sua Altura"
-                android:textColorHint="#abbaf2"
+                android:hint="Digite aqui sua Altura"
+                android:textColorHint="@color/black"
                 android:background="@drawable/activity_edit_text"
-                android:drawableStart="@drawable/icone_altura"
-                android:drawableTint="@color/white"/>
+                android:drawableStart="@drawable/ic_baseline_warning_24"
+                android:drawableTint="@color/black"/>
 
-            <Button
-                android:id="@+id/button_calcular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Calcular"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/activity_button"/>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Calcular"
+                    android:background="@drawable/activity_button"/>
 
             <TextView
                 android:id="@+id/textViewImc"
@@ -78,7 +80,7 @@
                 android:text="22.8"
                 android:textSize="35sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/activity_text_view"/>
 
@@ -90,7 +92,7 @@
                 android:text="PESO IDEAL"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/black"/>
 
         </LinearLayout>
 
