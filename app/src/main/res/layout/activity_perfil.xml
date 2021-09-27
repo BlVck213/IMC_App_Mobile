@@ -5,42 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    >
 
-
-    <RelativeLayout
-        android:id="@+id/header"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#ef6c00"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-       >
-
-        <TextView
-            android:id="@+id/Titulo1"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:text="Perfil"
-            />
-
-        <ImageButton
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_baseline_save_24"
-            />
-
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -72,7 +39,7 @@
             android:fontFamily="@font/montserrat"
             android:text="Trocar Foto"
             android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/colorPrimary"/>
 
 </LinearLayout>
 
@@ -83,54 +50,98 @@
     android:padding="20dp">
 
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Nome:"
-    android:textSize="15sp"
-    />
-    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dados para autenticação"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_baseline_lock_24"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <EditText
+        android:hint="E-mail:"
+            android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+            android:textColor="#8A000000"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <EditText
+            android:hint="Senha:"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            android:textColor="#8A000000"
+            android:layout_marginBottom="20dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profissão:"
-        android:textSize="15sp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        />
+        android:textSize="20sp"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:text="Dados pessoais"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:text="Altura:"
-        android:textSize="15sp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_width="match_parent">
+        <EditText
+            android:hint="Nome:"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#8A000000"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:text="Data de Nascimento:"
-        android:textSize="15sp"
-        />
-    <EditText
-        android:layout_width="match_parent"
+        android:layout_width="match_parent">
+        <EditText
+            android:hint="Profissão:"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#8A000000"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_width="match_parent">
+        <EditText
+            android:hint="Altura:"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:inputType="numberDecimal"
+            android:layout_height="wrap_content"
+            android:textColor="#8A000000"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <EditText
+            android:hint="Data de Nascimento:"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:textColor="#8A000000"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -147,7 +158,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Masculino"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#8A000000"
      />
 
     <RadioButton
@@ -155,15 +166,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="Feminino"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#8A000000"
     />
 
     </RadioGroup>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/black"
+        android:layout_height="1dp"
+        android:background="#8A000000"
         />
 
 

@@ -6,6 +6,7 @@
 
 
 <LinearLayout
+    android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -186,23 +187,104 @@
 </LinearLayout>
 
 <RelativeLayout
+    android:layout_below="@id/header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="30dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/pesar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/escala_peso"
-            android:paddingStart="20dp"/>
+            <ImageView
+                android:id="@+id/dois"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/escala_peso"
+                android:paddingStart="20dp"/>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/dois"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pesar Agora"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acompanhe o seu Peso"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/pesar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <ImageView
+               android:id="@+id/tres"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/aumentar"
+                android:paddingStart="20dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tres"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver Historico"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acompanhe suas conquistas"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>
