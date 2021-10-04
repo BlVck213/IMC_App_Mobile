@@ -139,6 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
+            android:focusable="false"
             android:textColor="#8A000000"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -179,5 +180,6 @@
 
 
 </LinearLayout>
+
 
 </LinearLayout>
