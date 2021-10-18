@@ -8,6 +8,17 @@
     android:scrollbarAlwaysDrawVerticalTrack="true"
     >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -59,12 +70,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-        <EditText
-        android:hint="E-mail:"
-            android:background="@android:color/transparent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        app:endIconMode="clear_text">
+        <EditText
+            android:hint="E-mail:" android:id="@+id/edit_email"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#8A000000"
         />
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,6 +86,7 @@
         android:layout_width="match_parent">
         <EditText
             android:hint="Senha:"
+            android:id="@+id/edit_senha"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:inputType="textPassword"
@@ -93,9 +106,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        app:endIconMode="clear_text">
         <EditText
             android:hint="Nome:"
+            android:id="@+id/edit_nome"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,10 +120,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        app:endIconMode="clear_text">
         <EditText
             android:hint="Profissão:"
             android:background="@android:color/transparent"
+            android:id="@+id/edit_profissao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#8A000000"
@@ -118,9 +135,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        app:endIconMode="clear_text">
         <EditText
             android:hint="Altura:"
+            android:id="@+id/edit_altura"
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:inputType="numberDecimal"
@@ -135,16 +154,18 @@
         android:layout_width="match_parent">
         <EditText
             android:hint="Data de Nascimento:"
+            android:id="@+id/data"
             android:background="@android:color/transparent"
+            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:focusable="false"
             android:textColor="#8A000000"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <TextView
+        android:id="@+id/textSexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sexo:"
@@ -156,6 +177,7 @@
         android:orientation="horizontal">
 
     <RadioButton
+        android:id="@+id/edit_sexo_masc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Masculino"
@@ -163,6 +185,7 @@
      />
 
     <RadioButton
+        android:id="@+id/edit_sexo_femin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -183,3 +206,6 @@
 
 
 </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
