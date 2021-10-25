@@ -1,14 +1,16 @@
-package com.example.imc
+package com.example.imc.ui
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.imc.R
+import com.example.imc.model.Usuario
+import com.example.imc.util.convertStringToLocalDate
+import java.time.LocalDate
 import java.util.*
 
 
@@ -21,10 +23,10 @@ class PerfilActivity: AppCompatActivity() {
     lateinit var editProfissao: EditText
     lateinit var editAltura: EditText
     lateinit var editData: EditText
-    lateinit var editSexoMasc: RadioButton
-    lateinit var editSexoFem: RadioButton
+    lateinit var editSexo: RadioGroup
     lateinit var textSexo: TextView
-
+    lateinit var editSexoFem: RadioButton
+    lateinit var editSexoMasc: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,7 @@ class PerfilActivity: AppCompatActivity() {
         editProfissao = findViewById<EditText>(R.id.edit_profissao)
         editAltura = findViewById<EditText>(R.id.edit_altura)
         editData = findViewById<EditText>(R.id.data)
+        editSexo = findViewById<RadioGroup>(R.id.edit_sexo)
         editSexoMasc = findViewById<RadioButton>(R.id.edit_sexo_masc)
         editSexoFem = findViewById<RadioButton>(R.id.edit_sexo_femin)
         textSexo = findViewById<TextView>(R.id.textSexo)
@@ -52,6 +55,8 @@ class PerfilActivity: AppCompatActivity() {
         val ano = calendario.get(Calendar.YEAR)
         val mes = calendario.get(Calendar.MONTH)
         val dia = calendario.get(Calendar.DAY_OF_MONTH)
+
+
 
         // Abrir componente DatePicker
         val eDataNascimento = findViewById<EditText>(R.id.data)
@@ -73,12 +78,44 @@ class PerfilActivity: AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        if(validarCampos()){
+            var nascimento = convertStringToLocalDate(editData.text.toString())
+
+            val usuario = Usuario(
+                1,
+                editNome.text.toString(),
+                editEmail.text.toString(),
+                editSenha.text.toString(),
+                0,
+                editAltura.text.toString().toDouble(),
+                LocalDate.of( nascimento.year, nascimento.monthValue, nascimento.dayOfMonth ),
+                editProfissao.text.toString(),
+                if(editSexoFem.isChecked){
+                    'F'
+                } else {
+                    'M'
+                }
+            )
+
+            val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+
+            val editor = dados.edit()
+            editor.putInt("id", usuario.id)
+            editor.putString("nome", usuario.nome)
+            editor.putString("email", usuario.email)
+            editor.putString("senha", usuario.senha)
+            editor.putInt("peso", usuario.peso)
+            editor.putFloat("altura", usuario.altura.toFloat())
+            editor.putString("dataNascimento", usuario.dataNascimento.toString())
+            editor.putString("profissao", usuario.profissao)
+            editor.putString("sexo", usuario.sexo.toString())
+            editor.apply()
+        }
+
         when (item.itemId){
             R.id.menu_save -> {
                 Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show()
             }
-
-
         }
 
         validarCampos()
