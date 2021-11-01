@@ -2,18 +2,23 @@ package com.example.imc.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.imc.R
 import com.example.imc.model.Usuario
+import com.example.imc.util.convertBitmapToBase64
 import com.example.imc.util.convertStringToLocalDate
 import java.time.LocalDate
 import java.util.*
 
-
+const val CODE_IMAGE = 120
 
 class PerfilActivity: AppCompatActivity() {
 
@@ -27,6 +32,9 @@ class PerfilActivity: AppCompatActivity() {
     lateinit var textSexo: TextView
     lateinit var editSexoFem: RadioButton
     lateinit var editSexoMasc: RadioButton
+    lateinit var tvTrocarFoto: TextView
+    lateinit var imgTrocarFoto: ImageView
+    var imageBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +50,18 @@ class PerfilActivity: AppCompatActivity() {
         editSexoMasc = findViewById<RadioButton>(R.id.edit_sexo_masc)
         editSexoFem = findViewById<RadioButton>(R.id.edit_sexo_femin)
         textSexo = findViewById<TextView>(R.id.textSexo)
-
+        tvTrocarFoto = findViewById<TextView>(R.id.trocarFoto)
+        imgTrocarFoto = findViewById<ImageView>(R.id.imgTrocarFoto)
 
 
         supportActionBar!!.title = "Perfil"
         supportActionBar!!.subtitle = "Crie seu Perfil"
+
+        tvTrocarFoto.setOnClickListener{
+            abrirGaleria()
+        }
+
+
 
         // Criar Calendario
         val calendario = Calendar.getInstance()
@@ -58,18 +73,66 @@ class PerfilActivity: AppCompatActivity() {
 
 
 
+
         // Abrir componente DatePicker
         val eDataNascimento = findViewById<EditText>(R.id.data)
 
         eDataNascimento.setOnClickListener {
             val dp = DatePickerDialog(this,
                     DatePickerDialog.OnDateSetListener { view, _ano, _mes, _dia ->
-                        eDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
+                        var diaZero = _dia
+                        var mesZero = _mes + 1
+
+                        var mesString = "$mesZero"
+                        var diaString = "$diaZero"
+
+                        if(mesZero < 10){
+                            mesString ="0$mesZero"
+                        }
+
+                        if(diaZero < 10){
+                            diaString = "0$diaZero"
+                        }
+
+                        eDataNascimento.setText("$diaString/$mesString/$_ano")
                     }, ano, mes, dia)
 
             dp.show()
         }
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, imagem: Intent?) {
+        super.onActivityResult(requestCode, resultCode, imagem)
+
+        Log.i("xpto", resultCode.toString())
+
+        if(requestCode == CODE_IMAGE && resultCode == -1){
+            val fluxoImagem = contentResolver.openInputStream(imagem!!.data!!)
+
+            imageBitmap = BitmapFactory.decodeStream(fluxoImagem)
+
+            imgTrocarFoto.setImageBitmap((imageBitmap))
+
+
+        }
+
+    }
+
+
+
+
+    private fun abrirGaleria() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+
+        startActivityForResult(
+                Intent.createChooser(intent,
+                "Escolha uma foto"),
+                CODE_IMAGE
+        )
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_perfil, menu)
@@ -94,7 +157,8 @@ class PerfilActivity: AppCompatActivity() {
                     'F'
                 } else {
                     'M'
-                }
+                },
+                    convertBitmapToBase64(imageBitmap!!)
             )
 
             val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
@@ -109,6 +173,7 @@ class PerfilActivity: AppCompatActivity() {
             editor.putString("dataNascimento", usuario.dataNascimento.toString())
             editor.putString("profissao", usuario.profissao)
             editor.putString("sexo", usuario.sexo.toString())
+            editor.putString("fotoPerfil", usuario.fotoPerfil)
             editor.apply()
         }
 
@@ -169,3 +234,5 @@ class PerfilActivity: AppCompatActivity() {
     }
 
 }
+
+

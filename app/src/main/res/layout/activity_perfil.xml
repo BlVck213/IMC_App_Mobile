@@ -35,8 +35,9 @@
         >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imgTrocarFoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
              android:src="@drawable/golden"
             android:scaleType="centerCrop"
             />
@@ -45,6 +46,7 @@
    </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/trocarFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
