@@ -22,14 +22,16 @@
         >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/golden"
+            android:id="@+id/FOTO_PERFIL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            />
+            android:src="@drawable/person_24" />
+
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/NOME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
@@ -38,6 +40,7 @@
         android:textColor="@color/black"/>
 
     <TextView
+        android:id="@+id/PROFISSAO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
@@ -61,6 +64,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/IMC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
@@ -87,6 +91,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/NCD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
@@ -113,6 +118,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/IDADE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
@@ -139,6 +145,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/PESO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
@@ -165,6 +172,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/ALTURA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"

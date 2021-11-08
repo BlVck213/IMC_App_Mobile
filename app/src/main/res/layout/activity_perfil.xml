@@ -38,7 +38,7 @@
             android:id="@+id/imgTrocarFoto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             android:src="@drawable/golden"
+             android:src="@drawable/person_24"
             android:scaleType="centerCrop"
             />
 

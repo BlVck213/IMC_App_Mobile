@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import com.example.imc.R
 import com.example.imc.model.Usuario
 import com.example.imc.util.convertBitmapToBase64
@@ -53,6 +54,7 @@ class PerfilActivity: AppCompatActivity() {
         tvTrocarFoto = findViewById<TextView>(R.id.trocarFoto)
         imgTrocarFoto = findViewById<ImageView>(R.id.imgTrocarFoto)
 
+        imageBitmap = resources.getDrawable(R.drawable.person_24).toBitmap()
 
         supportActionBar!!.title = "Perfil"
         supportActionBar!!.subtitle = "Crie seu Perfil"
@@ -185,11 +187,17 @@ class PerfilActivity: AppCompatActivity() {
 
         validarCampos()
 
+        if(validarCampos()){
+            val voltarLoginActivity = Intent(this, LoginActivity::class.java)
+
+            startActivity(voltarLoginActivity)
+        }
         return true
     }
 
     fun validarCampos() : Boolean{
         var valido = true
+
 
         if (editEmail.text.isEmpty()) {
             editEmail.error = "O e-mail é obrigatório"
