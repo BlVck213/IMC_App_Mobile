@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="30dp">
+
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:src="@drawable/health"
+            />
+
+        <TextView
+            android:id="@+id/text_view_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vamos nos pesar"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/img"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/text_view_subtitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dados de sua pesagem"
+            android:drawableStart="@drawable/ic_baseline_emoji_people_24"
+            android:textSize="16sp"
+            android:layout_below="@+id/text_view_titulo"
+            android:textColor="#c56000"
+            />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/data_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_subtitulo"
+            app:endIconMode="clear_text"
+            android:layout_marginTop="10dp"
+            >
+
+            <EditText
+                android:id="@+id/edit_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:focusable="false"
+                android:hint="Data de pesagem"
+                android:drawableTint="#ef6c00"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/peso_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/data_input_layout"
+
+            app:endIconMode="clear_text"
+            android:layout_marginTop="10dp"
+            >
+
+            <EditText
+                android:id="@+id/edit_peso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Peso"
+                android:drawableTint="#ef6c00"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:text="Salvar"
+            android:id="@+id/buttonOK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/peso_input_layout"
+            android:backgroundTint="@color/colorPrimary"            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

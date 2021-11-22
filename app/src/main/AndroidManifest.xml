@@ -10,11 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Imc">
 
-        <activity android:name=".ui.LoginActivity"> <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ui.LoginActivity">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
         <activity android:name=".ui.DashboardActivity">
@@ -22,6 +19,14 @@
 
         <activity android:name=".ui.PerfilActivity">
 
+        </activity>
+
+        <activity android:name=".ui.PesoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
